@@ -1,0 +1,66 @@
+Bar Graph:
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Re-creating the "census_pd" DataFrame
+data = {
+    'Name': ['Fort Novosel', 'Fort Huachuca', 'Fort Irwin', 'Fort Carson', 'Fort Eisenhower', 
+             'Fort Moore', 'Fort Stewart', 'Fort Leavenworth', 'Fort Riley', 'Fort Campbell', 
+             'Fort Knox', 'Fort Johnson', 'Fort Detrick', 'Fort George G. Meade', 'Fort Leonard Wood', 
+             'Fort Drum', 'Fort Hamilton', 'Fort Liberty', 'Fort Still', 'Fort Jackson', 
+             'Fort Bliss', 'Fort Cavazos', 'Fort Belvoir', 'Fort Gregg-Adams', 'Fort Meyer', 
+             'Joint Base Lewis-McChord', 'Fort McCoy'],
+    'Poverty Rate (%)': [21.62, 13.47, 26.77, 15.63, 26.40, 
+                         26.12, 17.54, 10.95, 27.72, 16.55, 
+                         9.30, 18.70, 7.96, 4.96, 17.36, 
+                         16.48, 10.51, 30.03, 20.36, 42.16, 
+                         52.52, 25.27, 3.40, 18.30, 6.37, 
+                         19.46, 9.29]
+}
+
+census_pd = pd.DataFrame(data)
+
+# Sorting the DataFrame by poverty rate in ascending order for the bar chart
+census_pd_sorted_bar = census_pd.sort_values(by='Poverty Rate (%)')
+
+# Plotting the bar chart with sorted poverty rates
+plt.figure(figsize=(12, 8))
+plt.bar(census_pd_sorted_bar['Name'], census_pd_sorted_bar['Poverty Rate (%)'], color='skyblue')
+plt.axhline(y=13, color='red', linestyle='--', linewidth=1.5, label="Poverty Rate Benchmark (13%)")
+plt.xticks(rotation=90)
+plt.xlabel("Fort Name")
+plt.ylabel("Poverty Rate (%)")
+plt.title("Poverty Rate by Fort (Sorted from Lowest to Highest)")
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+Pie Chart:
+import matplotlib.pyplot as plt
+import pandas as pd
+# Sample data representing the "census_pd" DataFrame
+data = {
+    'Name': ['Fort Novosel', 'Fort Huachuca', 'Fort Irwin', 'Fort Carson', 'Fort Eisenhower',
+             'Fort Moore', 'Fort Stewart', 'Fort Leavenworth', 'Fort Riley', 'Fort Campbell',
+             'Fort Knox', 'Fort Johnson', 'Fort Detrick', 'Fort George G. Meade', 'Fort Leonard Wood',
+             'Fort Drum', 'Fort Hamilton', 'Fort Liberty', 'Fort Still', 'Fort Jackson',
+             'Fort Bliss', 'Fort Cavazos', 'Fort Belvoir', 'Fort Gregg-Adams', 'Fort Meyer',
+             'Joint Base Lewis-McChord', 'Fort McCoy'],
+    'Poverty Rate (%)': [21.62, 13.47, 26.77, 15.63, 26.40,
+                         26.12, 17.54, 10.95, 27.72, 16.55,
+                         9.30, 18.70, 7.96, 4.96, 17.36,
+                         16.48, 10.51, 30.03, 20.36, 42.16,
+                         52.52, 25.27, 3.40, 18.30, 6.37,
+                         19.46, 9.29]
+}
+census_pd = pd.DataFrame(data)
+# Sorting data by the poverty rate to group the colors (green for >13%, red for <=13%)
+census_pd_sorted = census_pd.sort_values(by='Poverty Rate (%)', ascending=False)
+# Reassign colors after sorting
+sorted_colors = ['green' if rate > 13 else 'red' for rate in census_pd_sorted['Poverty Rate (%)']]
+# Plotting the pie chart with grouped colors
+plt.figure(figsize=(10, 8))
+plt.pie([1]*len(census_pd_sorted), labels=census_pd_sorted['Name'], colors=sorted_colors, startangle=90, counterclock=False)
+plt.title("Forts by Poverty Rate (Green > 13%, Red <= 13%)")
+plt.show()
