@@ -1,4 +1,4 @@
-Bar Graph:
+# Bar Graph
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -36,7 +36,8 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 
-Pie Chart:
+# Pie Chart
+
 import matplotlib.pyplot as plt
 import pandas as pd
 # Sample data representing the "census_pd" DataFrame
