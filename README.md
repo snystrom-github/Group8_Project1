@@ -4,6 +4,7 @@ Project 1 - Group8
 GRADER, PLEASE NOTE: The complete Report, including the process and the Conclusionb (below), are in the Word document in the repo. 
 
 CONCLUSION
+
 •	The majority (19 of the 27) of the Army forts have poverty rates that fall above the national poverty line.
 
 •	There is a significant gap between the fort with the lowest poverty rate (Fort Belvoir) and the fort with the highest poverty rate (Fort Bliss). 
