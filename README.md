@@ -1,7 +1,7 @@
 # Group8_Project1
 Project 1 - Group8
 
-GRADER, PLEASE NOTE: The complete Report, including the process and the Conclusionb (below), are in the Word document in the repo. 
+PLEASE NOTE: The complete Report, including the process and the Conclusionb (below), are in the Word document in the repo. 
 
 CONCLUSION
 
